@@ -1,0 +1,625 @@
+/* ==========================================================================
+   RESET & GLOBAL STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-navy: #0a1128;
+  --secondary-navy: #1c2541;
+  --accent-gold: #c5a059;
+  --gold-light: #e0c283;
+  --text-light: #f4f4f9;
+  --text-dark: #1f2937;
+  --gray-bg: #f8fafc;
+  --font-serif: 'Cinzel', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --transition-fast: 0.3s ease;
+  --transition-slow: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--primary-navy);
+  color: var(--text-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+}
+
+.section-title .subtitle {
+  font-size: 1.1rem;
+  color: #a0aec0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* BUTTONS */
+.btn-gold {
+  background: linear-gradient(135deg, var(--accent-gold), var(--gold-light));
+  color: var(--primary-navy);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
+}
+
+.btn-primary {
+  background: var(--accent-gold);
+  color: var(--primary-navy);
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 17, 40, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a:not(.btn-primary) {
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-links a:not(.btn-primary):hover {
+  color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(10, 17, 40, 0.4) 0%, rgba(10, 17, 40, 0.85) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.badge {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.hero-content h1 {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   PURE CSS 3D WALKTHROUGH (HOVER DOOR OPEN & ZOOM TO POOL)
+   ========================================================================== */
+.walkthrough-section {
+  background: var(--secondary-navy);
+}
+
+.walkthrough-stage {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  perspective: 1000px; /* 3D Perspective Depth */
+  border: 2px solid var(--accent-gold);
+  cursor: pointer;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* Camera container that moves forward on hover */
+.camera {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HOVER STATE: CAMERA MOVES IN & THROUGH DOORS */
+.walkthrough-stage:hover .camera {
+  transform: translateZ(950px); /* Moves depth forward into the room */
+}
+
+/* STEP 1: Entrance Doors */
+.door-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+}
+
+.door-left {
+  background-image: linear-gradient(to right, rgba(10,17,40,0.8), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80');
+  transform-origin: left center;
+  border-right: 2px solid var(--accent-gold);
+}
+
+.door-right {
+  background-image: linear-gradient(to left, rgba(10,17,40,0.8), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80');
+  transform-origin: right center;
+  border-left: 2px solid var(--accent-gold);
+}
+
+/* HOVER STATE: DOORS SWING OPEN */
+.walkthrough-stage:hover .door-left {
+  transform: rotateY(-110deg);
+}
+
+.walkthrough-stage:hover .door-right {
+  transform: rotateY(110deg);
+}
+
+/* STEP 2: The Indoor Corridor Behind Doors */
+.corridor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-500px);
+  transform-style: preserve-3d;
+}
+
+.corridor-wall {
+  position: absolute;
+  width: 600px;
+  height: 100%;
+  background: linear-gradient(90deg, #111, #222);
+}
+
+.wall-left {
+  left: -200px;
+  transform: rotateY(90deg);
+  background: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80') center/cover;
+}
+
+.wall-right {
+  right: -200px;
+  transform: rotateY(-90deg);
+  background: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80') center/cover;
+}
+
+/* STEP 3: The Ocean Infinity Pool Destination */
+.pool-destination {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-900px);
+  background: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=80') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.destination-text {
+  background: rgba(10, 17, 40, 0.85);
+  padding: 30px 50px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-gold);
+  color: var(--text-light);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 1s ease 1.5s; /* Appears after entering */
+}
+
+.destination-text i {
+  font-size: 3rem;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+}
+
+.destination-text h3 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--accent-gold);
+}
+
+.walkthrough-stage:hover .destination-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.instruction-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 17, 40, 0.9);
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.walkthrough-stage:hover .instruction-overlay {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   GALLERY & ADVANCED IMAGE HOVER ZOOM (ENTER INTO IMAGE)
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card-3d {
+  position: relative;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Image Depth & Zoom Animation */
+.card-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+}
+
+/* HOVER EFFECT: Image expands forward, zooming inside */
+.card-3d:hover img {
+  transform: scale(1.3) translateZ(50px);
+  filter: brightness(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 17, 40, 0.9) 0%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  transition: var(--transition-fast);
+}
+
+.card-overlay h4 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.card-overlay p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  transform: translateY(15px);
+  opacity: 0;
+  transition: all 0.4s ease 0.1s;
+}
+
+.card-3d:hover .card-overlay h4,
+.card-3d:hover .card-overlay p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* PURE CSS GALLERY FILTER (RADIO BUTTONS) */
+.gallery-tabs input[type="radio"] {
+  display: none;
+}
+
+.tab-labels {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.tab-labels label {
+  padding: 10px 24px;
+  background: var(--secondary-navy);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 30px;
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.tab-labels label:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Active Radio Button Styling */
+#tab-all:checked ~ .tab-labels label[for="tab-all"],
+#tab-pool:checked ~ .tab-labels label[for="tab-pool"],
+#tab-rooms:checked ~ .tab-labels label[for="tab-rooms"],
+#tab-dining:checked ~ .tab-labels label[for="tab-dining"] {
+  background: var(--accent-gold);
+  color: var(--primary-navy);
+  border-color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Filter Hide/Show Logic with CSS */
+#tab-pool:checked ~ .gallery-grid .gallery-item:not(.cat-pool),
+#tab-rooms:checked ~ .gallery-grid .gallery-item:not(.cat-rooms),
+#tab-dining:checked ~ .gallery-grid .gallery-item:not(.cat-dining) {
+  display: none;
+}
+
+/* ==========================================================================
+   PURE CSS MODAL SYSTEM (:target)
+   ========================================================================== */
+.booking-section {
+  background: linear-gradient(rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.85)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+}
+
+.booking-section h2 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 15px;
+}
+
+.booking-section p {
+  color: #e2e8f0;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Modal CSS Overlay */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Active Modal when URL contains #booking-modal */
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--secondary-navy);
+  border: 1px solid var(--accent-gold);
+  width: 90%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  transform: translateY(-30px);
+  transition: transform 0.4s ease;
+}
+
+.modal:target .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #a0aec0;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: var(--accent-gold);
+}
+
+.modal-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.pure-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.pure-form label {
+  display: block;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.pure-form input,
+.pure-form select {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--primary-navy);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: 4px;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.pure-form input:focus,
+.pure-form select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.full-width {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  background: var(--primary-navy);
+  padding: 30px 0;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+  text-align: center;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE / TABLET)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .nav-links {
+    display: none; /* Simplification for pure CSS mobile without JS */
+  }
+
+  .walkthrough-stage {
+    height: 400px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

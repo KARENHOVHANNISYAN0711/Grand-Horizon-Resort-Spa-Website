@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Horizon Resort & Spa</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-hotel"></i>
+        GRAND HORIZON
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#walkthrough">3D Tour</a></li>
+        <li><a href="#gallery">Experience</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#booking" class="btn-primary">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge">Pure Luxury & Serenity</span>
+      <h1>Welcome to Paradise</h1>
+      <p>Hover over our Interactive 3D Portal below to enter the lobby, open the grand entrance, and walk directly to our cliffside infinity pool.</p>
+      <a href="#walkthrough" class="btn-gold">Start 3D Experience</a>
+    </div>
+  </section>
+
+  <!-- 3D WALKTHROUGH SECTION (PURE CSS ANIMATION) -->
+  <section id="walkthrough" class="section walkthrough-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>3D Interactive Walkthrough</h2>
+        <p class="subtitle">Hover over the frame below to zoom inside, open the door, and walk into the pool</p>
+      </div>
+
+      <!-- Pure CSS 3D Viewport -->
+      <div class="walkthrough-stage">
+        <div class="camera">
+          
+          <!-- STEP 1: The Grand Hotel Entrance Door -->
+          <div class="door-frame">
+            <div class="door door-left"></div>
+            <div class="door door-right"></div>
+          </div>
+
+          <!-- STEP 2: The Indoor Luxury Corridor -->
+          <div class="corridor">
+            <div class="corridor-wall wall-left"></div>
+            <div class="corridor-wall wall-right"></div>
+            <div class="corridor-floor"></div>
+          </div>
+
+          <!-- STEP 3: The Ocean Infinity Pool Destination -->
+          <div class="pool-destination">
+            <div class="pool-water"></div>
+            <div class="destination-text">
+              <i class="fa-solid fa-water"></i>
+              <h3>Infinity Pool & Ocean View</h3>
+              <p>You have arrived at the Grand Horizon Pool</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="instruction-overlay">
+          <span><i class="fa-solid fa-hand-pointer"></i> HOVER HERE TO ENTER & WALK TO THE POOL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY WITH INTERACTIVE HOVER ZOOM & PURE CSS TABS -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience Grand Horizon</h2>
+        <p class="subtitle">Hover any image to dive into deep 3D perspective zoom</p>
+      </div>
+
+      <!-- Pure CSS Gallery Filter (Radio Buttons) -->
+      <div class="gallery-tabs">
+        <input type="radio" id="tab-all" name="gallery-filter" checked>
+        <input type="radio" id="tab-pool" name="gallery-filter">
+        <input type="radio" id="tab-rooms" name="gallery-filter">
+        <input type="radio" id="tab-dining" name="gallery-filter">
+
+        <div class="tab-labels">
+          <label for="tab-all">All</label>
+          <label for="tab-pool">Pool & Beach</label>
+          <label for="tab-rooms">Suites</label>
+          <label for="tab-dining">Dining</label>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Item 1: Pool -->
+          <div class="gallery-item cat-pool">
+            <div class="card-3d">
+              <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Infinity Pool">
+              <div class="card-overlay">
+                <h4>Cliffside Pool</h4>
+                <p>Hover deep zoom effect</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Rooms -->
+          <div class="gallery-item cat-rooms">
+            <div class="card-3d">
+              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Presidential Suite">
+              <div class="card-overlay">
+                <h4>Presidential Suite</h4>
+                <p>Oceanfront views</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Dining -->
+          <div class="gallery-item cat-dining">
+            <div class="card-3d">
+              <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Fine Dining">
+              <div class="card-overlay">
+                <h4>Michelin Star Restaurant</h4>
+                <p>Gourmet experience</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Pool -->
+          <div class="gallery-item cat-pool">
+            <div class="card-3d">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Private Beach">
+              <div class="card-overlay">
+                <h4>Private Sunset Lagoon</h4>
+                <p>Exclusive access</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Rooms -->
+          <div class="gallery-item cat-rooms">
+            <div class="card-3d">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Luxury Villa">
+              <div class="card-overlay">
+                <h4>Royal Beach Villa</h4>
+                <p>Private pool included</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: Dining -->
+          <div class="gallery-item cat-dining">
+            <div class="card-3d">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Bar & Lounge">
+              <div class="card-overlay">
+                <h4>Skyline Lounge & Bar</h4>
+                <p>Craft cocktails</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PURE CSS MODAL BOOKING SYSTEM (USING :target) -->
+  <section id="booking" class="section booking-section">
+    <div class="container text-center">
+      <h2>Ready for an Unforgetable Stay?</h2>
+      <p>Reserve your suite now and unlock VIP private pool access.</p>
+      <a href="#booking-modal" class="btn-gold btn-lg">Open Booking Form</a>
+    </div>
+  </section>
+
+  <!-- CSS Target Modal -->
+  <div id="booking-modal" class="modal">
+    <div class="modal-content">
+      <a href="#close" class="modal-close">&times;</a>
+      <h3>Reserve Your Luxury Stay</h3>
+      <form class="pure-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Check-in Date</label>
+          <input type="date" required>
+        </div>
+        <div class="form-group">
+          <label>Check-out Date</label>
+          <input type="date" required>
+        </div>
+        <div class="form-group">
+          <label>Suite Type</label>
+          <select>
+            <option>Royal Ocean Villa</option>
+            <option>Presidential Suite</option>
+            <option>Deluxe Pool Room</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gold full-width">Confirm Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Grand Horizon Hotel. All Rights Reserved. Built with Pure HTML & CSS.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
